@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div id="index-banner">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row center">
+          <h5 class="header col s12 light">Find players from the FIFA 19 Database</h5>
+        <div class="input-field col l3 s6">
+          <input type="text" name="PlayerName" id="autocomplete-input1" class="autocomplete">
+          <label for="autocomplete-input1">Name</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="Age" id="autocomplete-input2" class="autocomplete">
+          <label for="autocomplete-input2">Age</label>
+        </div>
+
+        <div class="input-field col l3 s6">
+          <input type="text" name="Nationality" id="autocomplete-input3" class="autocomplete">
+          <label for="autocomplete-input3">Nationality</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="Club" id="autocomplete-input4" class="autocomplete">
+          <label for="autocomplete-input4">Club</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="Position" id="autocomplete-input5" class="autocomplete">
+          <label for="autocomplete-input5">Position</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="Overall" id="autocomplete-input6" class="autocomplete">
+          <label for="autocomplete-input6">Overall</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="Potential" id="autocomplete-input7" class="autocomplete">
+          <label for="autocomplete-input7">Potential</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="WeakFoot" id="autocomplete-input8" class="autocomplete">
+          <label for="autocomplete-input7">Weak Foot Rating</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="SkillMoves" id="autocomplete-input9" class="autocomplete">
+          <label for="autocomplete-input7">SkillMoves</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="PreferredFoot" id="autocomplete-input5" class="autocomplete">
+          <label for="autocomplete-input5">Preferred Foot</label>
+        </div>
+        <div class="input-field col l3 s6">
+          <input type="text" name="InternationalReputation" id="autocomplete-input5" class="autocomplete">
+          <label for="autocomplete-input5">International Rep</label>
+        </div>
+        
+        <div class="col l3 s6">
+          <button class="btn waves-effect waves-light light-blue" style="width: 300px" type="submit">
+              <i class="large material-icons">search</i>
+            </button>
+        </div>
+        </form>
+
+        <br><br>
+
+      </div>
+    </div>
+  </div>
+
+  {% if results %}``
+  <div class="row">
+      <div class="col s6 m12">
+        {% for obj in some_list %}
+          <div class="card white lighten-2">
+            <div class="card-content dark-text">
+              <div class="row">
+                <div class="col l1 m1 s1">
+                  <img src={{obj.Photo }} />
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Name: {{obj.Name }}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Age: {{obj.Age }}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Nationality: {{obj.Nationality }}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Club: {{obj.Club }}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Position: {{obj.Position}}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Overall: {{obj.Overall}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Potential: {{obj.Potential}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Value: {{obj.Value}}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Skill Moves: {{obj.SkillMoves}}*</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Weak Foot: {{obj.WeakFoot}}*<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Preferred Foot: {{obj.PreferredFoot}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Wage: {{obj.Wage}}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Int. Reputation: {{obj.InternationalReputation }}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Height: {{obj.Height }}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Weight: {{obj.Weight}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Jersey Number: {{obj.JerseyNumber}}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Acceleration: {{obj.Acceleration}}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Sprint Speed: {{obj.SprintSpeed}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Finishing: {{obj.Finishing}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Long Shots: {{obj.LongShots}}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Positioning: {{obj.Positioning}}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Composure: {{obj.Composure}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Reactions: {{obj.Reactions}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Shot Power: {{obj.ShotPower}}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Dribbling: {{obj.Dribbling}}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Ball Control: {{obj.BallControl}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Agility: {{obj.Agility}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Vision: {{obj.Vision}}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Crossing: {{obj.Crossing}}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Free Kicks: {{obj.FKAccuracy}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Short Passing: {{obj.ShortPassing}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Long Passing: {{obj.LongPassing}}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Stand Tackle: {{obj.StandingTackle }}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Slide Tackle: {{obj.SlidingTackle }}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Interceptions: {{obj.Interceptions}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Marking: {{obj.Marking}}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>Jumping: {{obj.StandingTackle }}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Strength: {{obj.SlidingTackle }}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Aggression: {{obj.Interceptions}}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>Heading: {{obj.HeadingAccuracy }}<b></span>
+                </div>
+                <div class="col l1.5 m1.5 s1.5">
+                  <span class="card-title" style="font-size: 16px"><b>GK Diving: {{obj.GKDiving }}</b></span>
+                  <span class="card-title" style="font-size: 16px"><b>GK Reflexes: {{obj.GKReflexes }}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>GK Positioning: {{obj.GKPositioning }}<b></span>
+                  <span class="card-title" style="font-size: 16px"><b>GK Handling: {{obj.GKHandling }}<b></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div> 
+  {% else %}
+  
+  </div>
+  {% endif %}
+
+{% endblock content %}
